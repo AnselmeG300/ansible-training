@@ -10,12 +10,27 @@
         - epel-release
         - git
         - wget
-    - name: Download pip script
-      get_url:
-        url: https://bootstrap.pypa.io/pip/2.7/get-pip.py
-        dest: /tmp/get-pip.py
-    - name: Install python-pip
-      ansible.builtin.command: python2.7 /tmp/get-pip.py
+    # - name: Download pip script
+    #   get_url:
+    #     url: https://bootstrap.pypa.io/pip/2.7/get-pip.py
+    #     dest: /tmp/get-pip.py
+    # - name: Install python-pip
+    #   ansible.builtin.command: python2.7 /tmp/get-pip.py
+    - name: Install python 3.6 and pip3
+      yum:
+        name:
+          - python36
+          - libselinux-python
+        state: present
+
+    - name: Install SELinux for Python 3
+      pip:
+        name:
+          - selinux
+        state: present
+        executable: pip3
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
     - name: Install docker python
       pip: name=docker-py
   tasks:
