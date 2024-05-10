@@ -2,7 +2,6 @@
 # tasks file for ansible-role-basic-apache-container
 - name: Setup CentOS
   include_tasks: setup-centos.yml
-#- include_tasks: "setup-centos.yml"
 
 - include_tasks: "install-docker.yml"
 
