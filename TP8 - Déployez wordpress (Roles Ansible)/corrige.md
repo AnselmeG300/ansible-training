@@ -28,7 +28,7 @@ ansible-galaxy install -r roles/requirements.yml
   
   ### Augmenter le time out de docker sur le client si vous etes sur le client eazytraining/client
   ```bash
-  ssh admin@10.0.52.5
+  ssh admin@10.0.20.5
   ```
   ### password: admin
 
